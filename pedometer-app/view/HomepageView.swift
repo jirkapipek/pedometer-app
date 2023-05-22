@@ -16,10 +16,13 @@ struct LocationAnnotation: Identifiable {
 struct HomepageView: View {
     @StateObject var locationManager = LocationManager()
     @StateObject var weatherManager = WeatherManager()
-    
+    @EnvironmentObject var appData: AppData
+
+    @State private var showDistance = false
     @State private var isWalking = false
     @State private var locations: [LocationAnnotation] = []
-    
+    @State private var distanceInMeters: Double = 0
+
     var body: some View {
         ZStack {
             Map(coordinateRegion: $locationManager.region, showsUserLocation: true, annotationItems: locations) { location in
@@ -80,7 +83,18 @@ struct HomepageView: View {
                 Button(action: {
                     isWalking.toggle()
                     if isWalking {
+                        distanceInMeters = 0
+                        let coordinates = locations.map { $0.location.coordinate }
+                        distanceInMeters = calculateTotalDistance(coordinates: coordinates)
+                        appData.distance += distanceInMeters
                         locations.removeAll()
+                    } else {
+                        distanceInMeters = 0
+                        let coordinates = locations.map { $0.location.coordinate }
+                        distanceInMeters = calculateTotalDistance(coordinates: coordinates)
+                        showDistance = true
+                        appData.distance = distanceInMeters
+
                     }
                 }, label: {
                     Text(isWalking ? "Ukončit chůzi" : "Zahájit chůzi")
@@ -91,6 +105,10 @@ struct HomepageView: View {
                         .cornerRadius(10)
                 })
                 .padding()
+                // Následující kód zobrazí WalkSummaryView po stisknutí tlačítka "Ukončit chůzi"
+                .sheet(isPresented: $showDistance) {
+                    DistanceView(distance: distanceInMeters)
+                }
             }
         }
         .onReceive(locationManager.$location) { location in
@@ -102,9 +120,24 @@ struct HomepageView: View {
             }
         }
     }
+    
 }
+
 struct HomepageView_Previews: PreviewProvider {
     static var previews: some View {
         HomepageView()
     }
+}
+func calculateTotalDistance(coordinates: [CLLocationCoordinate2D]) -> Double {
+    var distanceInMeters = 0.0
+    if coordinates.count >= 2 {
+    for i in 0..<coordinates.count-1 {
+        let origin = coordinates[i]
+        let destination = coordinates[i+1]
+        let originLocation = CLLocation(latitude: origin.latitude, longitude: origin.longitude)
+        let destinationLocation = CLLocation(latitude: destination.latitude, longitude: destination.longitude)
+        distanceInMeters += destinationLocation.distance(from: originLocation)
+    }
+    }
+    return distanceInMeters
 }
