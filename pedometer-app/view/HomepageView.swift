@@ -15,8 +15,9 @@ struct LocationAnnotation: Identifiable {
 
 struct HomepageView: View {
     @StateObject var locationManager = LocationManager()
-    @StateObject var weatherManager = WeatherManager()
     @EnvironmentObject var appData: AppData
+    @EnvironmentObject var profileData: UserData
+    @EnvironmentObject var weatherManager: WeatherManager
 
     @State private var showDistance = false
     @State private var isWalking = false
@@ -37,8 +38,9 @@ struct HomepageView: View {
             VStack {
                 HStack {
                     Spacer()
+                    
                     if let weather = weatherManager.weather?.current_weather {
-                        Text("\(Int(weather.temperature_2m)) °C")
+                        Text("\(String(format: "%.1f", weather.temperature )) °C")
                             .foregroundColor(.white)
                             .font(.body)
                             .padding(5)
@@ -48,7 +50,7 @@ struct HomepageView: View {
                             .padding(.vertical, 5)
                         
                         
-                        Text("\(Int(weather.windspeed_10m)) m/s")
+                        Text("\(String(format: "%.1f", weather.windspeed)) m/s")
                             .foregroundColor(.white)
                             .font(.body)
                             .padding(5)
@@ -107,16 +109,20 @@ struct HomepageView: View {
                 .padding()
                 // Následující kód zobrazí WalkSummaryView po stisknutí tlačítka "Ukončit chůzi"
                 .sheet(isPresented: $showDistance) {
-                    DistanceView(distance: distanceInMeters)
+                    StatisticsView(userData: profileData, distance: distanceInMeters)
                 }
             }
         }
         .onReceive(locationManager.$location) { location in
             if isWalking {
+                DispatchQueue.main.async {
                 locations.append(LocationAnnotation(location: location!))
+                }
             }
             if let location = location {
-                weatherManager.fetchWeatherData(for: location)
+                DispatchQueue.main.async {
+                    weatherManager.startFetchingWeatherData(for: location)
+                }
             }
         }
     }
@@ -141,3 +147,4 @@ func calculateTotalDistance(coordinates: [CLLocationCoordinate2D]) -> Double {
     }
     return distanceInMeters
 }
+

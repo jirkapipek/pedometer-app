@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4105F7922A23D4A90044E287 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4105F7912A23D4A90044E287 /* ProfileView.swift */; };
+		4105F7952A23D60C0044E287 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4105F7942A23D60C0044E287 /* UserData.swift */; };
+		4105F7972A23DC470044E287 /* RecordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4105F7962A23DC470044E287 /* RecordsView.swift */; };
 		41402F492A0014A200FA5630 /* pedometer_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41402F482A0014A200FA5630 /* pedometer_appApp.swift */; };
 		41402F4B2A0014A200FA5630 /* HomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41402F4A2A0014A200FA5630 /* HomepageView.swift */; };
 		41402F4D2A0014A400FA5630 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41402F4C2A0014A400FA5630 /* Assets.xcassets */; };
@@ -40,6 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4105F7912A23D4A90044E287 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		4105F7942A23D60C0044E287 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		4105F7962A23DC470044E287 /* RecordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsView.swift; sourceTree = "<group>"; };
 		41402F452A0014A200FA5630 /* pedometer-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pedometer-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		41402F482A0014A200FA5630 /* pedometer_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pedometer_appApp.swift; sourceTree = "<group>"; };
 		41402F4A2A0014A200FA5630 /* HomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageView.swift; sourceTree = "<group>"; };
@@ -83,6 +89,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4105F7932A23D5FA0044E287 /* profile */ = {
+			isa = PBXGroup;
+			children = (
+				4105F7942A23D60C0044E287 /* UserData.swift */,
+			);
+			path = profile;
+			sourceTree = "<group>";
+		};
 		41402F3C2A0014A200FA5630 = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +120,7 @@
 		41402F472A0014A200FA5630 /* pedometer-app */ = {
 			isa = PBXGroup;
 			children = (
+				4105F7932A23D5FA0044E287 /* profile */,
 				416635CB2A003A3900ACE0D3 /* view */,
 				416635CA2A003A2800ACE0D3 /* location */,
 				416635C92A003A1A00ACE0D3 /* weather */,
@@ -165,6 +180,8 @@
 				414A708C2A08349000B60BE4 /* DistanceView.swift */,
 				414A708E2A08390600B60BE4 /* ContentView.swift */,
 				414A70922A08464500B60BE4 /* StatisticsView.swift */,
+				4105F7912A23D4A90044E287 /* ProfileView.swift */,
+				4105F7962A23DC470044E287 /* RecordsView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -300,12 +317,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				41402F4B2A0014A200FA5630 /* HomepageView.swift in Sources */,
+				4105F7922A23D4A90044E287 /* ProfileView.swift in Sources */,
+				4105F7972A23DC470044E287 /* RecordsView.swift in Sources */,
 				414A708D2A08349000B60BE4 /* DistanceView.swift in Sources */,
 				414A708F2A08390600B60BE4 /* ContentView.swift in Sources */,
 				41402F492A0014A200FA5630 /* pedometer_appApp.swift in Sources */,
 				416635CD2A003A4E00ACE0D3 /* WeatherManager.swift in Sources */,
 				414A70932A08464500B60BE4 /* StatisticsView.swift in Sources */,
 				41402F7C2A00380600FA5630 /* LocationManager.swift in Sources */,
+				4105F7952A23D60C0044E287 /* UserData.swift in Sources */,
 				414A70912A083A8100B60BE4 /* AppData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -21,13 +21,16 @@ class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
         self.locationManager.requestLocation()
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last else { return }
+    func updateRegionAndLocation(with location: CLLocation) {
         let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         self.region = MKCoordinateRegion(center: center, span: span)
         self.location = location
-
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else { return }
+        updateRegionAndLocation(with: location)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

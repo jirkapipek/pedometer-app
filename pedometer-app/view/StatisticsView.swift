@@ -7,20 +7,24 @@
 import SwiftUI
 
 struct StatisticsView: View {
+    @ObservedObject var userData: UserData
     var distance: Double
     
     var caloriesBurned: Double {
-        // Vzorec pro odhad spálených kalorií při chůzi
-        // 0.5 kcal / kg / km * hmotnost v kg * vzdálenost v km
-        let weightInKg = 70.0 // Váha v kg
+        let weightInKg = userData.weight
         let caloriesPerKilometerPerKilogram = 0.5
-        return caloriesPerKilometerPerKilogram * weightInKg * (distance / 1000.0)
+        print(weightInKg)
+        let factor = userData.gender == .male ? 1.0 : 0.9 // Úprava pro pohlaví
+        return caloriesPerKilometerPerKilogram * weightInKg * (distance / 1000.0) * factor
     }
     
     var body: some View {
         VStack {
             Text("Ujitá vzdálenost: \(String(format: "%.2f", distance / 1000.0)) km")
             Text("Spálené kalorie: \(String(format: "%.2f", caloriesBurned)) kcal")
+        }
+        .onAppear {
+            userData.recentRecords.append(Record(distance: distance, caloriesBurned: caloriesBurned))
         }
     }
 }

@@ -11,6 +11,9 @@ import MapKit
 
 struct ContentView: View {
     @StateObject var appData = AppData()
+    @StateObject var profileData = UserData()
+    @StateObject var weatherManager = WeatherManager()
+
     @State private var distance = 0.0
 
 
@@ -18,15 +21,23 @@ struct ContentView: View {
         TabView {
             HomepageView()
                 .environmentObject(appData)
+                .environmentObject(profileData)
+                .environmentObject(weatherManager)
                 .tabItem {
                     Image(systemName: "house.fill")
                     Text("Homepage")
                 }
-            StatisticsView(distance: appData.distance)
-                .environmentObject(appData)
+            ProfileView()
+                .environmentObject(profileData)
                 .tabItem {
-                    Image(systemName: "figure.walk")
-                    Text("Statistics")
+                    Image(systemName: "person.fill")
+                    Text("Profile")
+                }
+            RecordsView(userData: profileData)
+                .environmentObject(profileData)
+                .tabItem {
+                    Image(systemName: "clock")
+                    Text("Recent")
                 }
         }
     }
