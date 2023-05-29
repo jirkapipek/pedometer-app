@@ -14,9 +14,6 @@
 		41402F4B2A0014A200FA5630 /* HomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41402F4A2A0014A200FA5630 /* HomepageView.swift */; };
 		41402F4D2A0014A400FA5630 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41402F4C2A0014A400FA5630 /* Assets.xcassets */; };
 		41402F502A0014A400FA5630 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41402F4F2A0014A400FA5630 /* Preview Assets.xcassets */; };
-		41402F5A2A0014A400FA5630 /* pedometer_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41402F592A0014A400FA5630 /* pedometer_appTests.swift */; };
-		41402F642A0014A400FA5630 /* pedometer_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41402F632A0014A400FA5630 /* pedometer_appUITests.swift */; };
-		41402F662A0014A400FA5630 /* pedometer_appUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41402F652A0014A400FA5630 /* pedometer_appUITestsLaunchTests.swift */; };
 		41402F7C2A00380600FA5630 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41402F7B2A00380600FA5630 /* LocationManager.swift */; };
 		414A708D2A08349000B60BE4 /* DistanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414A708C2A08349000B60BE4 /* DistanceView.swift */; };
 		414A708F2A08390600B60BE4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414A708E2A08390600B60BE4 /* ContentView.swift */; };
@@ -52,10 +49,7 @@
 		41402F4C2A0014A400FA5630 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		41402F4F2A0014A400FA5630 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		41402F552A0014A400FA5630 /* pedometer-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "pedometer-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		41402F592A0014A400FA5630 /* pedometer_appTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pedometer_appTests.swift; sourceTree = "<group>"; };
 		41402F5F2A0014A400FA5630 /* pedometer-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "pedometer-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		41402F632A0014A400FA5630 /* pedometer_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pedometer_appUITests.swift; sourceTree = "<group>"; };
-		41402F652A0014A400FA5630 /* pedometer_appUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pedometer_appUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		41402F7B2A00380600FA5630 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		414A708C2A08349000B60BE4 /* DistanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceView.swift; sourceTree = "<group>"; };
 		414A708E2A08390600B60BE4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -102,8 +96,6 @@
 			isa = PBXGroup;
 			children = (
 				41402F472A0014A200FA5630 /* pedometer-app */,
-				41402F582A0014A400FA5630 /* pedometer-appTests */,
-				41402F622A0014A400FA5630 /* pedometer-appUITests */,
 				41402F462A0014A200FA5630 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -138,23 +130,6 @@
 				41402F4F2A0014A400FA5630 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		41402F582A0014A400FA5630 /* pedometer-appTests */ = {
-			isa = PBXGroup;
-			children = (
-				41402F592A0014A400FA5630 /* pedometer_appTests.swift */,
-			);
-			path = "pedometer-appTests";
-			sourceTree = "<group>";
-		};
-		41402F622A0014A400FA5630 /* pedometer-appUITests */ = {
-			isa = PBXGroup;
-			children = (
-				41402F632A0014A400FA5630 /* pedometer_appUITests.swift */,
-				41402F652A0014A400FA5630 /* pedometer_appUITestsLaunchTests.swift */,
-			);
-			path = "pedometer-appUITests";
 			sourceTree = "<group>";
 		};
 		416635C92A003A1A00ACE0D3 /* weather */ = {
@@ -334,7 +309,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41402F5A2A0014A400FA5630 /* pedometer_appTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,8 +316,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41402F662A0014A400FA5630 /* pedometer_appUITestsLaunchTests.swift in Sources */,
-				41402F642A0014A400FA5630 /* pedometer_appUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
