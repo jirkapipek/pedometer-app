@@ -92,6 +92,7 @@
 		4105F7932A23D5FA0044E287 /* profile */ = {
 			isa = PBXGroup;
 			children = (
+				414A70902A083A8100B60BE4 /* AppData.swift */,
 				4105F7942A23D60C0044E287 /* UserData.swift */,
 			);
 			path = profile;
@@ -168,7 +169,6 @@
 			isa = PBXGroup;
 			children = (
 				41402F7B2A00380600FA5630 /* LocationManager.swift */,
-				414A70902A083A8100B60BE4 /* AppData.swift */,
 			);
 			path = location;
 			sourceTree = "<group>";
